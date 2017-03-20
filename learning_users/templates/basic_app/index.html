@@ -1,0 +1,56 @@
+{% extends "basic_app/base.html" %}
+{% block body_block %}
+{% load static %}
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Django features by Rafael Weiss</h1>
+    {% if user.is_authenticated %}
+        <h2>Bem vindo {{ user.username }}!</h2>
+        <h3>seu e-mail: {{ user.email }}</h3>
+
+
+    {% else %}
+        <h2>Seja bem vindo!</h2>
+    {% endif %}
+    <p></p>
+    </div>
+    </div>
+
+<div class="container">
+
+  <div class="">
+    <ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="{% url 'index' %}">Descrição</a></li>
+  <li role="presentation"><a href="{% url 'basic_app:aba_registrado' %}">Conteúdo Exclusivo</a></li>
+  <li role="presentation"><a href="{% url 'basic_app:fotos_cafe' %}">Fotos de Café</a></li>
+</ul>
+<br>
+  <div class="jumbotron">
+    <h2>Descrição do Site:</h2>
+    <p>Este site é um portfólio com exemplo de várias funcionalidades como:</p>
+    <ul>
+      <li>Sistema de cadastro e login</li>
+      <li>Conteúdo exclusivo para usuários do site</li>
+      <li>Area administrativa fácil para qualquer cliente usar: use <b>login:</b>admin <b>senha:</b>040656aa040656aa para usar e testar você mesmo</li>
+      <li>Na pagina opções você encontra varios tipos de inputs, forms e grids.</li>
+      <li>A barra de opções do topo desce junto conforme voce vai descendo a página.</li>
+      <li>As opçoes da barra viram o hamburger icon caso voce esteja usando um mobile ou a tela seja incolhida.</li>
+    </ul>
+    <p>Esse site foi feito usando os recursos:</p>
+    <ul>
+      <li>Boostrap</li>
+      <li>Django</li>
+      <li>Python</li>
+      <li>JavaScript</li>
+
+    </ul>
+  </div>
+</div>
+
+</div>
+
+{% endblock %}

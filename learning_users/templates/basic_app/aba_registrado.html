@@ -1,0 +1,49 @@
+{% extends "basic_app/base.html" %}
+{% block body_block %}
+{% load static %}
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Django features by Rafael Weiss</h1>
+    {% if user.is_authenticated %}
+        <h2>Bem vindo {{ user.username }}!</h2>
+        <h3>seu e-mail: {{ user.email }}</h3>
+    {% else %}
+        <h2>Seja bem vindo!</h2>
+    {% endif %}
+    <p></p>
+    </div>
+</div>
+
+<div class="container">
+
+  <div class="">
+    <ul class="nav nav-tabs">
+  <li role="presentation" ><a href="{% url 'index' %}">Descrição</a></li>
+  <li role="presentation" class="active"><a href="{% url 'basic_app:aba_registrado' %}">Conteúdo Exclusivo</a></li>
+  <li role="presentation"><a href="{% url 'basic_app:fotos_cafe' %}">Fotos de Café</a></li>
+</ul>
+<br>
+  <div class="jumbotron">
+    <h2>conteudo exclusivo</2>
+      {% if user.is_authenticated %}
+      <h2>username: {{ user.username }}!</h2>
+      <h3>e-mail: {{ user.email }}</h3>
+      <div class="row">
+        <div class="col-xs-12 col-md-12">
+          <a href="#" class="thumbnail">
+            <img src="https://cdn-images-1.medium.com/max/2000/1*PzbHsNXqfibB7WNcyj6Zmw.jpeg">
+          </a>
+        </div>
+      {% else %}
+        <h2><a href="{% url 'basic_app:register' %}">cadastre-se</a> e faça <a href="{% url 'basic_app:user_login' %}">login</a> para poder ver uma imagem nesta página.</h2>
+      {% endif %}
+          </div>
+</div>
+
+</div>
+
+{% endblock %}
